@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="3d," />
 
 
 
@@ -79,11 +79,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="zxduan blog">
-<meta property="og:url" content="http://zxduan.github.io/index.html">
+<meta name="description" content="Introduction最近在看cvpr2020文章的时候，发现了几篇挺有意思的论文。就顺着论文思路把这个方向整理了一下。  Autolabeling 3D Objects with Differentiable Rendering of SDF Shape Priors 这篇主要是通过2d框和点云，来自动化标注3d框。其中用到了”Neural Rendering”。关于这个概念的话，这个视频讲的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nerual-rendering">
+<meta property="og:url" content="http://zxduan.github.io/2020/07/05/nerual-rendering/index.html">
 <meta property="og:site_name" content="zxduan blog">
+<meta property="og:description" content="Introduction最近在看cvpr2020文章的时候，发现了几篇挺有意思的论文。就顺着论文思路把这个方向整理了一下。  Autolabeling 3D Objects with Differentiable Rendering of SDF Shape Priors 这篇主要是通过2d框和点云，来自动化标注3d框。其中用到了”Neural Rendering”。关于这个概念的话，这个视频讲的">
+<meta property="article:published_time" content="2020-07-05T14:54:16.000Z">
+<meta property="article:modified_time" content="2020-07-05T14:54:34.434Z">
 <meta property="article:author" content="zhixiang duan">
+<meta property="article:tag" content="3d">
 <meta name="twitter:card" content="summary">
 
 
@@ -114,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://zxduan.github.io/"/>
+  <link rel="canonical" href="http://zxduan.github.io/2020/07/05/nerual-rendering/"/>
 
 
 
 
 
-  <title>zxduan blog</title>
+  <title>nerual-rendering | zxduan blog</title>
   
 
 
@@ -139,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -245,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/05/nerual-rendering/" itemprop="url">nerual-rendering</a></h1>
+          <h1 class="post-title" itemprop="name headline">nerual-rendering</h1>
         
 
         <div class="post-meta">
@@ -297,9 +299,7 @@
       
 
       
-        
-          
-            <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>最近在看cvpr2020文章的时候，发现了几篇挺有意思的论文。就顺着论文思路把这个方向整理了一下。</p>
+        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>最近在看cvpr2020文章的时候，发现了几篇挺有意思的论文。就顺着论文思路把这个方向整理了一下。</p>
 <ul>
 <li><p><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zakharov_Autolabeling_3D_Objects_With_Differentiable_Rendering_of_SDF_Shape_Priors_CVPR_2020_paper.pdf" target="_blank" rel="noopener">Autolabeling 3D Objects with Differentiable Rendering of SDF Shape Priors</a></p>
 <p>这篇主要是通过2d框和点云，来自动化标注3d框。其中用到了”Neural Rendering”。关于这个概念的话，这个<a href="https://www.youtube.com/watch?v=3dNquSS4T_4&t=950s" target="_blank" rel="noopener">视频</a>讲的比较清楚，从中我理解了rendering为啥不可导以及大家为了它可导都在做哪些工作。</p>
@@ -313,8 +313,6 @@
 </ul>
 <p>因为也是刚接触，所以先简单罗列一些资源在这，等真正理解了这个方向，再重新组织一下。</p>
 
-          
-        
       
     </div>
     
@@ -329,146 +327,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zxduan.github.io/2020/07/05/first-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhixiang duan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zxduan blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/05/first-post/" itemprop="url">Neural Rendering</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-05T13:21:40+08:00">
-                2020-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/3d/" rel="tag"># 3d</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>最近在看cvpr2020文章的时候，发现了几篇挺有意思的论文。就顺着论文思路把这个方向整理了一下。</p>
-<ul>
-<li><p><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zakharov_Autolabeling_3D_Objects_With_Differentiable_Rendering_of_SDF_Shape_Priors_CVPR_2020_paper.pdf" target="_blank" rel="noopener">Autolabeling 3D Objects with Differentiable Rendering of SDF Shape Priors</a></p>
-<p>这篇主要是通过2d框和点云，来自动化标注3d框。其中用到了”Neural Rendering”。关于这个概念的话，这个<a href="https://www.youtube.com/watch?v=3dNquSS4T_4&t=950s" target="_blank" rel="noopener">视频</a>讲的比较清楚，从中我理解了rendering为啥不可导以及大家为了它可导都在做哪些工作。</p>
-</li>
-<li><p><a href="https://arxiv.org/pdf/2006.12057.pdf" target="_blank" rel="noopener">Differentiable Rendering: A Survey</a></p>
-<p>这篇就是这个方向的综述了</p>
-</li>
-<li><p><a href="https://arxiv.org/pdf/2006.09348.pdf" target="_blank" rel="noopener">LiDARsim: Realistic LiDAR Simulation by Leveraging the Real World</a></p>
-<p>这篇论文我觉得可以作为上面的补充，即为上面的方法生成gt</p>
-</li>
-</ul>
-<p>因为也是刚接触，所以先简单罗列一些资源在这，等真正理解了这个方向，再重新组织一下。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/05/first-post/" rel="next" title="Neural Rendering">
+                <i class="fa fa-chevron-left"></i> Neural Rendering
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -478,10 +366,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -489,6 +378,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -509,8 +402,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -561,6 +463,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -694,6 +612,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="depth," />
+  <meta name="keywords" content="deployment," />
 
 
 
@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="SUW-Learn 简介 这篇论文主要是讲了如何将三种单目深度估计的不同方法统一到一个框架中，这三种大的方法分别是： １．有监督 ２．无监督 ３．弱监督 在合并的时候也并没啥高明之处，不过通过这篇论文倒是可以了解一些各个方法有用的东西。">
+<meta name="description" content="这周的主要任务是部署深度学习模型–PointPillars，主要是用到了libtorch和tensorRT, 顺便了解了一下TVM. 因为是要在nvidia的产品上跑，所以首选tensorRT作为加速工作，但是因为tensorRT支持的layer比较有限，所以要想把整个代码都部署到设备端，需要借助libtorch来完成中间的粘合工作。 基本操作就是按照pytorch的官方教程，就是满足静态图的部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SUW-Learn　">
-<meta property="og:url" content="http://zxduan.github.io/2020/07/09/SUW-learn/index.html">
+<meta property="og:title" content="DNNDeploy.md">
+<meta property="og:url" content="http://zxduan.github.io/2020/07/17/DNNDeploy-md/index.html">
 <meta property="og:site_name" content="zxduan blog">
-<meta property="og:description" content="SUW-Learn 简介 这篇论文主要是讲了如何将三种单目深度估计的不同方法统一到一个框架中，这三种大的方法分别是： １．有监督 ２．无监督 ３．弱监督 在合并的时候也并没啥高明之处，不过通过这篇论文倒是可以了解一些各个方法有用的东西。">
-<meta property="article:published_time" content="2020-07-09T12:06:27.000Z">
-<meta property="article:modified_time" content="2020-07-09T12:17:12.465Z">
+<meta property="og:description" content="这周的主要任务是部署深度学习模型–PointPillars，主要是用到了libtorch和tensorRT, 顺便了解了一下TVM. 因为是要在nvidia的产品上跑，所以首选tensorRT作为加速工作，但是因为tensorRT支持的layer比较有限，所以要想把整个代码都部署到设备端，需要借助libtorch来完成中间的粘合工作。 基本操作就是按照pytorch的官方教程，就是满足静态图的部分">
+<meta property="article:published_time" content="2020-07-17T09:40:50.000Z">
+<meta property="article:modified_time" content="2020-07-17T09:56:08.135Z">
 <meta property="article:author" content="zhixiang duan">
-<meta property="article:tag" content="depth">
+<meta property="article:tag" content="deployment">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://zxduan.github.io/2020/07/09/SUW-learn/"/>
+  <link rel="canonical" href="http://zxduan.github.io/2020/07/17/DNNDeploy-md/"/>
 
 
 
 
 
-  <title>SUW-Learn　 | zxduan blog</title>
+  <title>DNNDeploy.md | zxduan blog</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zxduan.github.io/2020/07/09/SUW-learn/">
+    <link itemprop="mainEntityOfPage" href="http://zxduan.github.io/2020/07/17/DNNDeploy-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhixiang duan">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SUW-Learn　</h1>
+          <h1 class="post-title" itemprop="name headline">DNNDeploy.md</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-09T20:06:27+08:00">
-                2020-07-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-17T17:40:50+08:00">
+                2020-07-17
               </time>
             
 
@@ -291,6 +291,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/daily/" itemprop="url" rel="index">
+                    <span itemprop="name">daily</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -319,15 +341,10 @@
       
 
       
-        <h4 id="SUW-Learn"><a href="#SUW-Learn" class="headerlink" title="SUW-Learn"></a><a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w45/Ren_SUW-Learn_Joint_Supervised_Unsupervised_Weakly_Supervised_Deep_Learning_for_Monocular_CVPRW_2020_paper.pdf" target="_blank" rel="noopener">SUW-Learn</a></h4><ul>
-<li><p>简介</p>
-<p>这篇论文主要是讲了如何将三种单目深度估计的不同方法统一到一个框架中，这三种大的方法分别是：</p>
-<p>１．有监督</p>
-<p>２．无监督</p>
-<p>３．弱监督</p>
-<p>在合并的时候也并没啥高明之处，不过通过这篇论文倒是可以了解一些各个方法有用的东西。</p>
-</li>
-</ul>
+        <p>这周的主要任务是部署深度学习模型–PointPillars，主要是用到了libtorch和tensorRT, 顺便了解了一下TVM.</p>
+<p>因为是要在nvidia的产品上跑，所以首选tensorRT作为加速工作，但是因为tensorRT支持的layer比较有限，所以要想把整个代码都部署到设备端，需要借助libtorch来完成中间的粘合工作。</p>
+<p>基本操作就是按照pytorch的官方教程，就是满足静态图的部分用trace, 有用到if else等的选择script, 踩了一些诸如 reshape(-1) 等的坑后，转换还在顺利。</p>
+<p>摸鱼之余，了解了一下<a href="https://zhuanlan.zhihu.com/p/50529704" target="_blank" rel="noopener">tvm</a>, 看起来还挺有吸引力的，但是我们公司目前是针对nvidia和cpu等不同设备采用不同的推理框架，所以这个权当了解一下吧。</p>
 
       
     </div>
@@ -345,7 +362,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/depth/" rel="tag"># depth</a>
+            <a href="/tags/deployment/" rel="tag"># deployment</a>
           
         </div>
       
@@ -358,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/05/nerual-rendering/" rel="next" title="nerual-rendering">
-                <i class="fa fa-chevron-left"></i> nerual-rendering
+              <a href="/2020/07/09/SUW-learn/" rel="next" title="SUW-Learn　">
+                <i class="fa fa-chevron-left"></i> SUW-Learn　
               </a>
             
           </div>
@@ -367,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/17/DNNDeploy-md/" rel="prev" title="DNNDeploy.md">
-                DNNDeploy.md <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -422,17 +435,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -492,22 +496,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SUW-Learn"><span class="nav-number">1.</span> <span class="nav-text">SUW-Learn</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
